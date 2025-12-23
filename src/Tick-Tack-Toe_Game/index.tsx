@@ -18,14 +18,14 @@ const WIN_CONDITIONS: number[][] = [
 
 export default function TickTackToe() {
   const [board, setBoard] = useState<Player[]>(
-    () => Array(9).fill("") as Player[]
+    () => Array.from({length: 9}).fill("") as Player[]
   );
   const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
   const [running, setRunning] = useState<boolean>(true);
   const [status, setStatus] = useState<string>(`${currentPlayer}'s Turn`);
 
   const resetGame = useCallback(() => {
-    setBoard(Array(9).fill("") as Player[]);
+    setBoard(Array.from({length: 9}).fill("") as Player[]);
     setCurrentPlayer("X");
     setRunning(true);
     setStatus(`X's Turn`);
